@@ -1,10 +1,17 @@
 #!/usr/bin/env node
+/* eslint-disable import/order */
+
+/* eslint-disable prefer-template */
+
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-var */
 
 /**
  * Module dependencies.
  */
 
 var app = require('../app');
+// eslint-disable-next-line import/no-extraneous-dependencies
 var debug = require('debug')('cars:server');
 var http = require('http');
 
@@ -13,13 +20,13 @@ var http = require('http');
  */
 
 var port = normalizePort(process.env.PORT || '3000');
-var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
+// eslint-disable-next-line vars-on-top
 var server = http.createServer(app);
 
 /**
@@ -35,8 +42,10 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
+  // eslint-disable-next-line no-shadow
   var port = parseInt(val, 10);
 
+  // eslint-disable-next-line no-restricted-globals
   if (isNaN(port)) {
     // named pipe
     return val;
@@ -59,6 +68,7 @@ function onError(error) {
     throw error;
   }
 
+  // eslint-disable-next-line vars-on-top
   var bind = typeof port === 'string'
     ? 'Pipe ' + port
     : 'Port ' + port;
@@ -66,10 +76,12 @@ function onError(error) {
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
+      // eslint-disable-next-line no-console
       console.error(bind + ' requires elevated privileges');
       process.exit(1);
       break;
     case 'EADDRINUSE':
+      // eslint-disable-next-line no-console
       console.error(bind + ' is already in use');
       process.exit(1);
       break;
@@ -89,5 +101,3 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
-
-

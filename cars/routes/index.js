@@ -1,12 +1,12 @@
 /* eslint-disable import/no-unresolved */
 import express from 'express'
 
+import cars from '../controllers/cars'
+
 const router = express.Router();
 
 /* GET home page. */
-router.get('/', (req, res) => {
-  // res.render('index', { title: 'Express', message: 'Hello there!' })
-  res.send({ message: 'Welcome to Cars API' });
-});
+
+router.get('/', cars.welcome)
 
 module.exports = router
