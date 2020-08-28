@@ -10,5 +10,6 @@ router.put('/cars/:id', cars.updateCar)
 router.delete('/cars/:id', cars.deleteCar)
 router.get('/cars/:id', cars.getCar)
 router.get('/cars/make', cars.searchCarByMake)
+router.get('/cars/colour', cars.searchCarByColour)
 
 module.exports = router;
