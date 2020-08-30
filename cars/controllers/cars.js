@@ -13,6 +13,20 @@ class cars {
       res.status(200).send({ message: 'Cars fetched successfully', cars })
     })
   }
+
+  static addCars(req, res) {
+    carsModel.create({
+      make: req.body.make,
+      colour: req.body.colour,
+      year: req.body.year,
+      price: req.body.price
+    // eslint-disable-next-line arrow-body-style
+    }).then((newCar) => {
+      return res
+        .status(201)
+        .send({ message: 'Car added successfully', newCar })
+    })
+  }
 }
 
 export default cars

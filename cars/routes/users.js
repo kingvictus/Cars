@@ -5,5 +5,6 @@ import cars from '../controllers/cars'
 const router = express.Router();
 
 router.get('/cars', cars.getAllCars)
+router.post('/cars', cars.addCars)
 
 module.exports = router;
