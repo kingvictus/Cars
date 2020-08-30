@@ -11,6 +11,7 @@ const chai = require('chai')
 const should = chai.should()
 
 const request = supertest.agent(server)
+const carsModel = models.cars
 
 describe('Cars Api', () => {
   before(async () => {

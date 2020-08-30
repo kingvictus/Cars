@@ -3,14 +3,15 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'regenerator-runtime/runtime.js'
 
-import createError from 'http-errors'
-import express from 'express'
-import path from 'path'
-import cookieParser from 'cookie-parser'
-import logger from 'morgan'
+/* eslint-disable import/no-unresolved */
+const createError = require('http-errors')
+const express = require('express')
+const path = require('path')
+const cookieParser = require('cookie-parser')
+const logger = require('morgan')
 
-import indexRouter from './routes/index'
-import usersRouter from './routes/users'
+const indexRouter = require('./routes/index')
+const usersRouter = require('./routes/users')
 
 const app = express()
 
