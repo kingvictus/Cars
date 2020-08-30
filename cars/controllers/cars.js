@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 import models from '../models/index'
 
 const carModel = models.cars
@@ -55,10 +56,29 @@ class cars {
           message: 'car not found'
         })
       }
-      return cars.destroy().then(() => res.status(204).send({
-        message: 'car deleted successfully'
-      }))
+      return cars.destroy().then(() =>
+        res.status(204).send({
+          message: 'car deleted successfully'
+        }))
     })
+  }
+
+  static getCar(req, res) {
+    const id = parseInt(req.params.id)
+    carModel
+      .findOne({
+        where: {
+          id
+        }
+      })
+      .then((cars) => {
+        if (!cars) {
+          return res.status(404).send({
+            message: 'car not found'
+          })
+        }
+        return res.status(201).send({ message: 'Car found successfully', cars })
+      })
   }
 }
 

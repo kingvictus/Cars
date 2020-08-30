@@ -8,5 +8,6 @@ router.get('/cars', cars.getAllCars)
 router.post('/cars', cars.addCar)
 router.put('/cars/:id', cars.updateCar)
 router.delete('/cars/:id', cars.deleteCar)
+router.get('/cars/:id', cars.getCar)
 
 module.exports = router;
