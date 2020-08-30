@@ -1,4 +1,5 @@
 /* eslint-disable radix */
+import { Op } from 'sequelize'
 import models from '../models/index'
 
 const carModel = models.cars
@@ -78,6 +79,20 @@ class cars {
           })
         }
         return res.status(201).send({ message: 'Car found successfully', cars })
+      })
+  }
+
+  static searchCarByMake(req, res) {
+    carModel
+      .findAll({
+        where: {
+          make: {
+            [Op.substring]: `%${req.query.make}%`
+          }
+        }
+      })
+      .then((cars) => {
+        res.status(200).send({ cars })
       })
   }
 }
