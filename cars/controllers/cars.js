@@ -148,6 +148,45 @@ class cars {
       })
     }
   }
+
+  static searchCarByPrice(req, res) {
+    if (req.query.price) {
+      const price = parseInt(req.query.price)
+      carModel.findAll({
+        where: {
+          price: {
+            [Op.eq]: price
+          }
+        }
+      }).then((cars) => {
+        res.status(200).send({ cars })
+      })
+    }
+    if (req.query.price_greater_than) {
+      const price = parseInt(req.query.price_greater_than)
+      carModel.findAll({
+        where: {
+          price: {
+            [Op.gt]: price
+          }
+        }
+      }).then((cars) => {
+        res.status(200).send({ cars })
+      })
+    }
+    if (req.query.price_less_than) {
+      const price = parseInt(req.query.price_less_than)
+      carModel.findAll({
+        where: {
+          price: {
+            [Op.lt]: price
+          }
+        }
+      }).then((cars) => {
+        res.status(200).send({ cars })
+      })
+    }
+  }
 }
 
 export default cars
