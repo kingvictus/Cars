@@ -109,6 +109,45 @@ class cars {
         .send({ cars })
     })
   }
+
+  static searchCarByYear(req, res) {
+    if (req.query.year) {
+      const year = parseInt(req.query.year)
+      carModel.findAll({
+        where: {
+          year: {
+            [Op.eq]: year
+          }
+        }
+      }).then((cars) => {
+        res.status(200).send({ cars })
+      })
+    }
+    if (req.query.year_greater_than) {
+      const year = parseInt(req.query.year_greater_than)
+      carModel.findAll({
+        where: {
+          year: {
+            [Op.gt]: year
+          }
+        }
+      }).then((cars) => {
+        res.status(200).send({ cars })
+      })
+    }
+    if (req.query.year_less_than) {
+      const year = parseInt(req.query.year_less_than)
+      carModel.findAll({
+        where: {
+          year: {
+            [Op.lt]: year
+          }
+        }
+      }).then((cars) => {
+        res.status(200).send({ cars })
+      })
+    }
+  }
 }
 
 export default cars

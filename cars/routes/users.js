@@ -11,5 +11,6 @@ router.delete('/cars/:id', cars.deleteCar)
 router.get('/cars/:id', cars.getCar)
 router.get('/cars/make', cars.searchCarByMake)
 router.get('/cars/colour', cars.searchCarByColour)
+router.get('/cars/year', cars.searchCarByYear)
 
 module.exports = router;
