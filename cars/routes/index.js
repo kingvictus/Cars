@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import express from 'express'
 
 import cars from '../controllers/cars'
