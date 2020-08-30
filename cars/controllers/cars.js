@@ -95,6 +95,20 @@ class cars {
         res.status(200).send({ cars })
       })
   }
+
+  static searchCarByColour(req, res) {
+    carModel.findAll({
+      where: {
+        genres: {
+          [Op.substring]: `%${req.query.colour}%`
+        }
+      }
+    }).then((cars) => {
+      res
+        .status(200)
+        .send({ cars })
+    })
+  }
 }
 
 export default cars
