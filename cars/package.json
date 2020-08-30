@@ -1,0 +1,22 @@
+{
+  "name": "cars",
+  "version": "1.0.0",
+  "description": "An app about cars.",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Cars"
+  },
+  "keywords": [
+    "Cars"
+  ],
+  "author": "Steven Igomu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
+
