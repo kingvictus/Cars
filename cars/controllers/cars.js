@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable radix */
 import { Op } from 'sequelize'
 import models from '../models/index'
