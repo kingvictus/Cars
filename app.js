@@ -1,3 +1,8 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'regenerator-runtime/runtime.js'
+
 /* eslint-disable import/no-unresolved */
 const createError = require('http-errors')
 const express = require('express')

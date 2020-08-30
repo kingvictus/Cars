@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
+// eslint-disable-next-line import/no-unresolved
 import { expect } from 'chai'
 import supertest from 'supertest'
 import server from '../app'
