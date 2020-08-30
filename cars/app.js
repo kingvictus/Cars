@@ -1,6 +1,3 @@
-
-import 'core-js/stable'
-
 const createError = require('http-errors')
 const express = require('express')
 const path = require('path')
@@ -41,4 +38,5 @@ app.use((err, req, res) => {
 })
 
 module.exports = app
+
 
