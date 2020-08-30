@@ -1,10 +1,12 @@
-var express = require('express');
-var router = express.Router();
+/* eslint-disable import/no-unresolved */
+import express from 'express'
+
+const router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express', message: 'Hello there!' });
+router.get('/', (req, res) => {
+  // res.render('index', { title: 'Express', message: 'Hello there!' })
   res.send({ message: 'Welcome to Cars API' });
 });
 
-module.exports = router;
+module.exports = router
