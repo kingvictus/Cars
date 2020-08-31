@@ -109,7 +109,7 @@ class cars {
         }
       })
       .then((cars) => {
-        res.status(200).send({ cars })
+        res.status(200).send({ data: cars })
       })
   }
 
@@ -123,7 +123,7 @@ class cars {
         }
       })
       .then((cars) => {
-        res.status(200).send({ cars })
+        res.status(200).send({ data: cars })
       })
   }
 
