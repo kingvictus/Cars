@@ -207,4 +207,16 @@ describe('Cars Api', () => {
         })
     })
   })
+  describe('Get Car By model route', () => {
+    it('should get car by model', (done) => {
+      request
+        .get('/api/v1/cars/model')
+        .query({ model: 'grand tourer' })
+        .end((err, res) => {
+          res.status.should.be.equal(200)
+          expect(res.body.data).to.be.an('array')
+          done()
+        })
+    })
+  })
 })
