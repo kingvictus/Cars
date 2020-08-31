@@ -231,4 +231,37 @@ describe('Cars Api', () => {
         })
     })
   })
+
+  describe('Get car By Year Route', () => {
+    it('should get car by year', (done) => {
+      request
+        .get('/api/v1/cars/year')
+        .query({ year: 2018 })
+        .end((err, res) => {
+          res.status.should.be.equal(200)
+          expect(res.body.data).to.be.an('array')
+          done()
+        })
+    })
+    it('should get car by year greater than', (done) => {
+      request
+        .get('/api/v1/cars/year')
+        .query({ year_greater_than: 2005 })
+        .end((err, res) => {
+          res.status.should.be.equal(200)
+          expect(res.body.data).to.be.an('array')
+          done()
+        })
+    })
+    it('should get car by year less than', (done) => {
+      request
+        .get('/api/v1/cars/year')
+        .query({ year_less_than: 2002 })
+        .end((err, res) => {
+          res.status.should.be.equal(200)
+          expect(res.body.data).to.be.an('array')
+          done()
+        })
+    })
+  })
 })
