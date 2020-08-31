@@ -93,4 +93,87 @@ describe('Cars Api', () => {
       })
     })
   })
+
+  describe('Add cars route', () => {
+    it('should Add Cars', (done) => {
+      request
+        .post('/api/v1/cars')
+        .send({
+          make: 'Mercedes',
+          model: 'GLE',
+          colour: 'Black',
+          price: 50000,
+          year: '2017'
+        })
+        .end((err, res) => {
+          res.status.should.be.equal(201)
+          expect(res.body.message).be.equal('Car added successfully')
+          done()
+        })
+    })
+    it('should Add Car when id does not exist', (done) => {
+      request
+        .post('/api/v1/cars/2222')
+        .send({
+          make: 'Mercedes',
+          model: 'GLE',
+          colour: 'Black',
+          price: 50000,
+          year: '2017'
+        })
+        .end((err, res) => {
+          res.status.should.be.equal(404)
+          expect(res.body.message).be.equal(undefined)
+          done()
+        })
+    })
+    it('should return Year must be a number if the year passed isnt a number', (done) => {
+      request
+        .post('/api/v1/cars')
+        .send({
+          make: 'Mercedes',
+          model: 'GLE',
+          colour: 'Black',
+          price: 50000,
+          year: '2017'
+        })
+        .end((err, res) => {
+          res.status.should.be.equal(400)
+          expect(res.body.message).be.equal('Year must be a number')
+          done()
+        })
+    })
+    it('should return make cannot be empty if user doesnt put a make', (done) => {
+      request
+        .post('/api/v1/cars')
+        .send({
+          make: 'Mercedes',
+          model: 'GLE',
+          colour: 'Black',
+          price: 50000,
+          year: '2017'
+        })
+        .end((err, res) => {
+          res.status.should.be.equal(400)
+          expect(res.body.message).be.equal('Make cannot be empty')
+          done()
+        })
+    })
+    it('should return model cannot be empty if user doesnt put an model', (done) => {
+      request
+        .post('/api/v1/cars')
+        .send({
+          make: 'Mercedes',
+          model: 'GLE',
+          colour: 'Black',
+          price: 50000,
+          year: '2017'
+        })
+        .end((err, res) => {
+          res.status.should.be.equal(400)
+          expect(res.body.message).be.equal('Model cannot be empty')
+          done()
+        })
+    })
+  })
 })
