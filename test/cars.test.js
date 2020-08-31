@@ -14,20 +14,23 @@ const request = supertest.agent(server)
 const carsModel = models.cars
 
 let carToDelete = {}
+let newCar = {}
 
 describe('Cars Api', () => {
   before(async () => {
     // create database tables
     await models.sequelize.sync()
 
-    await carsModel.create({
+    newCar = await carsModel.create({
       make: 'Mercedes',
+      model: 'GLE',
       colour: 'Black',
       price: 50000,
       year: '2017'
     })
     carToDelete = await carsModel.create({
       make: 'Bentley',
+      model: 'flying spur',
       colour: 'Blue',
       price: 300000,
       year: '2017'
