@@ -176,4 +176,23 @@ describe('Cars Api', () => {
         })
     })
   })
+  describe('Get single Car', () => {
+    it('it should GET a car by id', (done) => {
+      request.get(`/api/v1/cars/${newCar.id}`).end((err, res) => {
+        res.status.should.be.equal(201)
+        res.body.should.be.a('object')
+        expect(res.body.movie).to.have.property('make')
+        expect(res.body.movie).to.have.property('model')
+        expect(res.body.movie).to.have.property('colour')
+        done()
+      })
+    })
+    it('it should GET a car by id', (done) => {
+      request.get('/api/v1/cars/8888').end((err, res) => {
+        res.status.should.be.equal(404)
+        expect(res.body.message).to.equal('car not found')
+        done()
+      })
+    })
+  })
 })
