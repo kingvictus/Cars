@@ -10,6 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   )
+  cars.associate = () => {
 
+  }
   return cars
 }
