@@ -21,6 +21,7 @@ class cars {
     carModel
       .create({
         make: req.body.make,
+        model: req.body.model,
         colour: req.body.colour,
         year: req.body.year,
         price: req.body.price
@@ -37,6 +38,7 @@ class cars {
       cars
         .update({
           make: req.body.make || cars.make,
+          model: req.body.model || cars.model,
           colour: req.body.colour || cars.colour,
           year: req.body.year || cars.year,
           price: req.body.price || cars.price

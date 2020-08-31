@@ -6,6 +6,9 @@ module.exports = {
       make: {
         type: Sequelize.STRING
       },
+      model: {
+        type: Sequelize.STRING
+      },
       colour: {
         type: Sequelize.STRING
       },
