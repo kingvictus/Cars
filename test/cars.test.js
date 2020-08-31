@@ -264,4 +264,36 @@ describe('Cars Api', () => {
         })
     })
   })
+  describe('Get car By Price Route', () => {
+    it('should get car by price', (done) => {
+      request
+        .get('/api/v1/cars/price')
+        .query({ price: 50000 })
+        .end((err, res) => {
+          res.status.should.be.equal(200)
+          expect(res.body.data).to.be.an('array')
+          done()
+        })
+    })
+    it('should get car by price greater than', (done) => {
+      request
+        .get('/api/v1/cars/price')
+        .query({ price_greater_than: 2000 })
+        .end((err, res) => {
+          res.status.should.be.equal(200)
+          expect(res.body.data).to.be.an('array')
+          done()
+        })
+    })
+    it('should get car by price less than', (done) => {
+      request
+        .get('/api/v1/cars/price')
+        .query({ year_less_than: 500000 })
+        .end((err, res) => {
+          res.status.should.be.equal(200)
+          expect(res.body.data).to.be.an('array')
+          done()
+        })
+    })
+  })
 })
