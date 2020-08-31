@@ -219,4 +219,16 @@ describe('Cars Api', () => {
         })
     })
   })
+  describe('Get Car By colour route', () => {
+    it('should get car by colour', (done) => {
+      request
+        .get('/api/v1/cars/colour')
+        .query({ colour: 'silver' })
+        .end((err, res) => {
+          res.status.should.be.equal(200)
+          expect(res.body.data).to.be.an('array')
+          done()
+        })
+    })
+  })
 })
