@@ -19,10 +19,10 @@ describe('Cars Api', () => {
     await models.sequelize.sync()
 
     await carsModel.create({
-      Make: 'Mercedes',
-      Colour: 'Black',
-      Price: 50000,
-      Year: '2017'
+      make: 'Mercedes',
+      colour: 'Black',
+      price: 50000,
+      year: '2017'
     })
   })
   after(async () => {
@@ -46,6 +46,24 @@ describe('Cars Api', () => {
         expect(res.body.message).be.equal('Cars retrieved successfully')
         done()
       })
+    })
+  })
+  describe('Update cars route', () => {
+    it('should UPDATE a car by the id', (done) => {
+      request
+        .put(`/cars/${newCar.id}`)
+        .send({
+          make: 'Ferrari',
+          model: 'California',
+          colour: 'Red',
+          price: 250000,
+          year: '2018'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(200)
+          expect(res.body.message).be.equal('Car updated successfully')
+          done()
+        })
     })
   })
 })
