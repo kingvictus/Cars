@@ -99,95 +99,121 @@ class cars {
       })
   }
 
-  static searchCarByColour(req, res) {
-    carModel.findAll({
-      where: {
-        genres: {
-          [Op.substring]: `%${req.query.colour}%`
+  static searchCarByModel(req, res) {
+    carModel
+      .findAll({
+        where: {
+          make: {
+            [Op.substring]: `%${req.query.model}%`
+          }
         }
-      }
-    }).then((cars) => {
-      res
-        .status(200)
-        .send({ cars })
-    })
+      })
+      .then((cars) => {
+        res.status(200).send({ cars })
+      })
+  }
+
+  static searchCarByColour(req, res) {
+    carModel
+      .findAll({
+        where: {
+          genres: {
+            [Op.substring]: `%${req.query.colour}%`
+          }
+        }
+      })
+      .then((cars) => {
+        res.status(200).send({ cars })
+      })
   }
 
   static searchCarByYear(req, res) {
     if (req.query.year) {
       const year = parseInt(req.query.year)
-      carModel.findAll({
-        where: {
-          year: {
-            [Op.eq]: year
+      carModel
+        .findAll({
+          where: {
+            year: {
+              [Op.eq]: year
+            }
           }
-        }
-      }).then((cars) => {
-        res.status(200).send({ cars })
-      })
+        })
+        .then((cars) => {
+          res.status(200).send({ cars })
+        })
     }
     if (req.query.year_greater_than) {
       const year = parseInt(req.query.year_greater_than)
-      carModel.findAll({
-        where: {
-          year: {
-            [Op.gt]: year
+      carModel
+        .findAll({
+          where: {
+            year: {
+              [Op.gt]: year
+            }
           }
-        }
-      }).then((cars) => {
-        res.status(200).send({ cars })
-      })
+        })
+        .then((cars) => {
+          res.status(200).send({ cars })
+        })
     }
     if (req.query.year_less_than) {
       const year = parseInt(req.query.year_less_than)
-      carModel.findAll({
-        where: {
-          year: {
-            [Op.lt]: year
+      carModel
+        .findAll({
+          where: {
+            year: {
+              [Op.lt]: year
+            }
           }
-        }
-      }).then((cars) => {
-        res.status(200).send({ cars })
-      })
+        })
+        .then((cars) => {
+          res.status(200).send({ cars })
+        })
     }
   }
 
   static searchCarByPrice(req, res) {
     if (req.query.price) {
       const price = parseInt(req.query.price)
-      carModel.findAll({
-        where: {
-          price: {
-            [Op.eq]: price
+      carModel
+        .findAll({
+          where: {
+            price: {
+              [Op.eq]: price
+            }
           }
-        }
-      }).then((cars) => {
-        res.status(200).send({ cars })
-      })
+        })
+        .then((cars) => {
+          res.status(200).send({ cars })
+        })
     }
     if (req.query.price_greater_than) {
       const price = parseInt(req.query.price_greater_than)
-      carModel.findAll({
-        where: {
-          price: {
-            [Op.gt]: price
+      carModel
+        .findAll({
+          where: {
+            price: {
+              [Op.gt]: price
+            }
           }
-        }
-      }).then((cars) => {
-        res.status(200).send({ cars })
-      })
+        })
+        .then((cars) => {
+          res.status(200).send({ cars })
+        })
     }
     if (req.query.price_less_than) {
       const price = parseInt(req.query.price_less_than)
-      carModel.findAll({
-        where: {
-          price: {
-            [Op.lt]: price
+      carModel
+        .findAll({
+          where: {
+            price: {
+              [Op.lt]: price
+            }
           }
-        }
-      }).then((cars) => {
-        res.status(200).send({ cars })
-      })
+        })
+        .then((cars) => {
+          res.status(200).send({ cars })
+        })
     }
   }
 }
