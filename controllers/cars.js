@@ -139,7 +139,7 @@ class cars {
           }
         })
         .then((cars) => {
-          res.status(200).send({ cars })
+          res.status(200).send({ data: cars })
         })
     }
     if (req.query.year_greater_than) {
@@ -153,7 +153,7 @@ class cars {
           }
         })
         .then((cars) => {
-          res.status(200).send({ cars })
+          res.status(200).send({ data: cars })
         })
     }
     if (req.query.year_less_than) {
@@ -167,7 +167,7 @@ class cars {
           }
         })
         .then((cars) => {
-          res.status(200).send({ cars })
+          res.status(200).send({ data: cars })
         })
     }
   }
@@ -184,7 +184,7 @@ class cars {
           }
         })
         .then((cars) => {
-          res.status(200).send({ cars })
+          res.status(200).send({ data: cars })
         })
     }
     if (req.query.price_greater_than) {
@@ -198,7 +198,7 @@ class cars {
           }
         })
         .then((cars) => {
-          res.status(200).send({ cars })
+          res.status(200).send({ data: cars })
         })
     }
     if (req.query.price_less_than) {
@@ -212,7 +212,7 @@ class cars {
           }
         })
         .then((cars) => {
-          res.status(200).send({ cars })
+          res.status(200).send({ data: cars })
         })
     }
   }
