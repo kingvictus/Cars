@@ -195,4 +195,16 @@ describe('Cars Api', () => {
       })
     })
   })
+  describe('Get Car By make route', () => {
+    it('should get car by make', (done) => {
+      request
+        .get('/api/v1/cars/make')
+        .query({ make: 'maserati' })
+        .end((err, res) => {
+          res.status.should.be.equal(200)
+          expect(res.body.data).to.be.an('array')
+          done()
+        })
+    })
+  })
 })
